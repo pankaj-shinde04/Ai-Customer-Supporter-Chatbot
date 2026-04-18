@@ -1,10 +1,13 @@
 import HomeClient from "../components/HomeClient";
+import { getSession } from "../lib/getSessions";
 
-
-export default function Home() {
+export default async function Home() {
+  const token = await getSession();
+  console.log("Token passed to HomeClient:", token?.user?.user?.email);
+  
   return (
     <>
-      <HomeClient/>
+      <HomeClient email={token?.user?.user?.email || token?.user?.user?.name}/>
     </>
   );
 }
