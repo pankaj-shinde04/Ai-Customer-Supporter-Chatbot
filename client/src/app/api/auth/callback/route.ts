@@ -23,7 +23,7 @@ export async function GET(req:NextRequest) {
  response.cookies.set("id_token",  session.idToken,{
   httpOnly:true,
   maxAge:24*60*60*1000, // 1 day
-  secure:false,
+  secure:true,
   path:"/",
 })
 
